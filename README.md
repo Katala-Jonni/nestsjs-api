@@ -3,7 +3,7 @@
 To locally run the provided Postman collection against your backend, execute:
 
 ```
-APIURL=http://localhost:3000/api
+APIURL=http://localhost:3000
 ```
 
 ## Considerations for your backend with [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)
@@ -186,7 +186,7 @@ If a request fails any validations, expect a 422 and errors in the following for
 
 ### Authentication:
 
-`POST /api/users/login`
+`POST /users/login`
 
 Example request body:
 ```JSON
@@ -205,7 +205,7 @@ Required fields: `email`, `password`
 
 ### Registration:
 
-`POST /api/users`
+`POST /users`
 
 Example request body:
 ```JSON
@@ -226,7 +226,7 @@ Required fields: `email`, `username`, `password`
 
 ### Get Current User
 
-`GET /api/user`
+`GET /user`
 
 Authentication required, returns a [User](#users-for-authentication) that's the current user
 
@@ -234,7 +234,7 @@ Authentication required, returns a [User](#users-for-authentication) that's the 
 
 ### Update User
 
-`PUT /api/user`
+`PUT /user`
 
 Example request body:
 ```JSON
@@ -256,7 +256,7 @@ Accepted fields: `email`, `username`, `password`, `image`, `bio`
 
 ### Get Profile
 
-`GET /api/profiles/:username`
+`GET /profiles/:username`
 
 Authentication optional, returns a [Profile](#profile)
 
@@ -264,7 +264,7 @@ Authentication optional, returns a [Profile](#profile)
 
 ### Follow user
 
-`POST /api/profiles/:username/follow`
+`POST /profiles/:username/follow`
 
 Authentication required, returns a [Profile](#profile)
 
@@ -274,7 +274,7 @@ No additional parameters required
 
 ### Unfollow user
 
-`DELETE /api/profiles/:username/follow`
+`DELETE /profiles/:username/follow`
 
 Authentication required, returns a [Profile](#profile)
 
@@ -284,7 +284,7 @@ No additional parameters required
 
 ### List Articles
 
-`GET /api/articles`
+`GET /articles`
 
 Returns most recent articles globally by default, provide `tag`, `author` or `favorited` query parameter to filter results
 
@@ -316,7 +316,7 @@ Authentication optional, will return [multiple articles](#multiple-articles), or
 
 ### Feed Articles
 
-`GET /api/articles/feed`
+`GET /articles/feed`
 
 Can also take `limit` and `offset` query parameters like [List Articles](#list-articles)
 
@@ -325,13 +325,13 @@ Authentication required, will return [multiple articles](#multiple-articles) cre
 
 ### Get Article
 
-`GET /api/articles/:slug`
+`GET /articles/:slug`
 
 No authentication required, will return [single article](#single-article)
 
 ### Create Article
 
-`POST /api/articles`
+`POST /articles`
 
 Example request body:
 
@@ -356,7 +356,7 @@ Optional fields: `tagList` as an array of Strings
 
 ### Update Article
 
-`PUT /api/articles/:slug`
+`PUT /articles/:slug`
 
 Example request body:
 
@@ -377,7 +377,7 @@ The `slug` also gets updated when the `title` is changed
 
 ### Delete Article
 
-`DELETE /api/articles/:slug`
+`DELETE /articles/:slug`
 
 Authentication required
 
@@ -385,7 +385,7 @@ Authentication required
 
 ### Add Comments to an Article
 
-`POST /api/articles/:slug/comments`
+`POST /articles/:slug/comments`
 
 Example request body:
 
@@ -405,7 +405,7 @@ Required field: `body`
 
 ### Get Comments from an Article
 
-`GET /api/articles/:slug/comments`
+`GET /articles/:slug/comments`
 
 Authentication optional, returns [multiple comments](#multiple-comments)
 
@@ -413,7 +413,7 @@ Authentication optional, returns [multiple comments](#multiple-comments)
 
 ### Delete Comment
 
-`DELETE /api/articles/:slug/comments/:id`
+`DELETE /articles/:slug/comments/:id`
 
 Authentication required
 
@@ -421,7 +421,7 @@ Authentication required
 
 ### Favorite Article
 
-`POST /api/articles/:slug/favorite`
+`POST /articles/:slug/favorite`
 
 Authentication required, returns the [Article](#single-article)
 
@@ -431,7 +431,7 @@ No additional parameters required
 
 ### Unfavorite Article
 
-`DELETE /api/articles/:slug/favorite`
+`DELETE /articles/:slug/favorite`
 
 Authentication required, returns the [Article](#single-article)
 
@@ -441,6 +441,6 @@ No additional parameters required
 
 ### Get Tags
 
-`GET /api/tags`
+`GET /tags`
 
 No authentication required, returns a [List of Tags](#list-of-tags)
