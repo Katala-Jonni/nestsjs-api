@@ -381,44 +381,6 @@ The `slug` also gets updated when the `title` is changed
 
 Authentication required
 
-
-
-### Add Comments to an Article
-
-`POST /articles/:slug/comments`
-
-Example request body:
-
-```JSON
-{
-  "comment": {
-    "body": "His name was my name too."
-  }
-}
-```
-
-Authentication required, returns the created [Comment](#single-comment)
-
-Required field: `body`
-
-
-
-### Get Comments from an Article
-
-`GET /articles/:slug/comments`
-
-Authentication optional, returns [multiple comments](#multiple-comments)
-
-
-
-### Delete Comment
-
-`DELETE /articles/:slug/comments/:id`
-
-Authentication required
-
-
-
 ### Favorite Article
 
 `POST /articles/:slug/favorite`
